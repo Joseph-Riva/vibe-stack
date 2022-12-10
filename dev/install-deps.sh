@@ -1,5 +1,8 @@
 #! /bin/bash
 
+export NVM_DIR=$HOME/.nvm;
+source $NVM_DIR/nvm.sh;
+
 check_command(){
     command_name="$1"
     install_command="$2"
@@ -7,7 +10,7 @@ check_command(){
     echo "checking if ${command_name} is installed."
 
     command_exists(){
-        command -v "${command_name}" 2>&1 > /dev/null
+        command -v "${command_name}" > /dev/null 2>&1
     }
     if ! command_exists; then
         echo "${command_name} install not found."
